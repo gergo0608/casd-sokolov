@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adventisté v Sokolově</title>
+<title>Adventisté v Sokolově – Úvod</title>
 <style>
+/* --- CSS stejný pro všechny stránky --- */
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-body { line-height:1.6; background:#f4f4f9; color:#333; transition: background 0.3s; }
+body { line-height:1.6; background:#f4f4f9; color:#333; }
 
 header {
-    position: fixed; top: 20px; left:50%; transform: translateX(-50%);
+    position: fixed; top:20px; left:50%; transform:translateX(-50%);
     width:90%; max-width:1200px;
     background: rgba(44,62,80,0.75); color:white;
     padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center;
@@ -21,10 +22,7 @@ nav a{
     padding:0.3rem 0.6rem; border-radius:8px; transition: background 0.3s;
 }
 nav a:hover{ background: rgba(241,196,15,0.9); color:#2c3e50; }
-nav a.active{ background: #f1c40f; color:#2c3e50; }
-
-.page{ display:none; opacity:0; transition: opacity 0.5s; }
-.page.active{ display:block; opacity:1; }
+nav a.active{ background:#f1c40f; color:#2c3e50; }
 
 .hero {
     height:500px; background: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
@@ -41,35 +39,6 @@ nav a.active{ background: #f1c40f; color:#2c3e50; }
 .hero-content p{ font-size:1.2rem; max-width:800px; margin:0 auto; }
 
 main{ max-width:1200px; margin:220px auto 0 auto; padding:0 2rem; }
-
-section{
-    margin-bottom:3rem;
-    background:white;
-    padding:2rem;
-    border-radius:15px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
-
-h2 { margin-bottom:1rem; color:#2c3e50; }
-p { margin-bottom:1rem; }
-
-.services {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:2rem;
-}
-
-.card {
-    background:white;
-    padding:1.5rem;
-    border-radius:15px;
-    box-shadow:0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-    transform:translateY(-5px);
-    box-shadow:0 8px 15px rgba(0,0,0,0.2);
-}
 
 footer{
     background:#2c3e50; color:white; text-align:center;
@@ -90,83 +59,30 @@ footer a{ color:#f1c40f; text-decoration:none; }
 <header>
     <h1>Adventisté v Sokolově</h1>
     <nav>
-        <a href="#" data-page="home" class="active">Úvod</a>
-        <a href="#" data-page="about">O nás</a>
-        <a href="#" data-page="services">Aktivity</a>
-        <a href="#" data-page="contact">Kontakt</a>
+        <a href="index.html" class="active">Úvod</a>
+        <a href="o-nas.html">O nás</a>
+        <a href="aktivity.html">Aktivity</a>
+        <a href="kontakt.html">Kontakt</a>
     </nav>
 </header>
 
+<div class="hero">
+    <div class="hero-content">
+        <h2>Vítejte u Církve adventistů sedmého dne v Sokolově</h2>
+        <p>Přijďte zažít inspirující bohoslužby, vzdělávání a komunitní aktivity. Každý je u nás vítán.</p>
+    </div>
+</div>
+
 <main>
-    <section id="home" class="page active">
-        <div class="hero">
-            <div class="hero-content">
-                <h2>Vítejte u Církve adventistů sedmého dne v Sokolově</h2>
-                <p>Přijďte zažít inspirující bohoslužby, vzdělávání a komunitní aktivity. Každý je u nás vítán.</p>
-            </div>
-        </div>
-        <p style="text-align:center; font-size:1.2rem; margin-top:40px;">Klikněte na odkazy v menu pro více informací.</p>
-    </section>
-
-    <section id="about" class="page">
-        <h2>O nás</h2>
-        <p>Jsme Církev adventistů sedmého dne v Sokolově. Naším cílem je šířit víru, naději a lásku skrze bohoslužby, vzdělávání a společenské aktivity.</p>
-        <p>Přijímáme každého – ať už hledáte duchovní podporu, komunitní aktivity nebo vzdělávání v rámci církve.</p>
-    </section>
-
-    <section id="services" class="page">
-        <h2>Naše aktivity</h2>
-        <div class="services">
-            <div class="card">
-                <h3>Bohoslužby</h3>
-                <p>Každou sobotu od <strong>09:30 hod.</strong> se konají bohoslužby v naší modlitebně.</p>
-            </div>
-            <div class="card">
-                <h3>Vzdělávání</h3>
-                <p>Kurzy Bible, nedělní škola pro děti a mládež, přednášky a semináře pro dospělé.</p>
-            </div>
-            <div class="card">
-                <h3>Společenské akce</h3>
-                <p>Setkání komunity, sportovní aktivity, dobrovolnické projekty a oslavy svátků.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="page">
-        <h2>Kontakt</h2>
-        <p>Církev adventistů sedmého dne – Sokolov</p>
-        <p>Adresa: <strong>[Vložte přesnou adresu modlitebny]</strong></p>
-        <p>Email: <a href="mailto:fila.jaw@gmail.com">fila.jaw@gmail.com</a></p>
-        <p>Telefon: +420 123 456 789</p>
-        <p>Více informací na <a href="https://www.adventist.cz" target="_blank">adventist.cz</a></p>
+    <section>
+        <h2>Přehled</h2>
+        <p>Klikněte na menu pro více informací: O nás, Aktivity, Kontakt.</p>
     </section>
 </main>
 
 <footer>
     <p>&copy; 2026 Církev adventistů sedmého dne – Sokolov</p>
 </footer>
-
-<script>
-const navLinks = document.querySelectorAll('nav a');
-const pages = document.querySelectorAll('.page');
-
-navLinks.forEach(link=>{
-    link.addEventListener('click', e=>{
-        e.preventDefault();
-        const target = link.getAttribute('data-page');
-
-        // Skrýt všechny stránky
-        pages.forEach(p=>p.classList.remove('active'));
-
-        // Odstranit active ze všech odkazů
-        navLinks.forEach(l=>l.classList.remove('active'));
-
-        // Aktivovat kliknutou stránku a odkaz
-        document.getElementById(target).classList.add('active');
-        link.classList.add('active');
-    });
-});
-</script>
 
 </body>
 </html>
