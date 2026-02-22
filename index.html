@@ -3,170 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Církev adventistů sedmého dne – Sokolov</title>
-<style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-    body { line-height:1.6; background:#f4f4f9; color:#333; }
-
-    /* Floating hotbar menu s průhledností */
-    header {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        max-width: 1200px;
-        background: rgba(44, 62, 80, 0.75); /* průhledné */
-        color: white;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-    }
-    header h1 { font-size:1.6rem; }
-    nav a {
-        color:white;
-        text-decoration:none;
-        margin-left:1.5rem;
-        font-weight:bold;
-        padding:0.3rem 0.6rem;
-        border-radius:8px;
-        transition: background 0.3s;
-    }
-    nav a:hover {
-        background: rgba(241,196,15,0.9);
-        color:#2c3e50;
-    }
-
-    /* Hero úvodní sekce */
-    .hero {
-        height: 500px;
-        background: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        color:white;
-        border-radius:15px;
-        margin:20px 0 40px 0;
-        box-shadow:0 4px 12px rgba(0,0,0,0.2);
-        position: relative;
-    }
-    .hero::after {
-        content:"";
-        position:absolute;
-        top:0; left:0; width:100%; height:100%;
-        background: rgba(44,62,80,0.5); /* tmavý průhledný overlay pro lepší čitelnost textu */
-        border-radius:15px;
-    }
-    .hero-content {
-        position: relative;
-        z-index:1;
-    }
-    .hero-content h2 { font-size:3rem; margin-bottom:1rem; }
-    .hero-content p { font-size:1.2rem; max-width:800px; margin:0 auto; }
-
-    main { max-width:1200px; margin:0 auto; padding:0 2rem; }
-    section { margin-bottom:3rem; background:white; padding:2rem; border-radius:15px; box-shadow:0 4px 8px rgba(0,0,0,0.1); }
-    h2 { margin-bottom:1rem; color:#2c3e50; }
-    p { margin-bottom:1rem; }
-
-    /* Aktivity - karty */
-    .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
-    .card {
-        background:white;
-        padding:1.5rem;
-        border-radius:15px;
-        box-shadow:0 4px 6px rgba(0,0,0,0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-        transform:translateY(-5px);
-        box-shadow:0 8px 15px rgba(0,0,0,0.2);
-    }
-
-    footer {
-        background:#2c3e50;
-        color:white;
-        text-align:center;
-        padding:1rem 2rem;
-        border-radius:15px 15px 0 0;
-        margin-top:2rem;
-    }
-    footer a { color:#f1c40f; text-decoration:none; }
-
-    /* Posun hlavního obsahu pod floating menu */
-    main { margin-top:220px; }
-
-    @media(max-width:768px){
-        header{flex-direction:column;text-align:center;}
-        nav{margin-top:0.5rem;}
-        .hero-content h2 { font-size:2rem; }
-        .hero-content p { font-size:1rem; }
-    }
-</style>
+<title>Adventisté v Sokolově</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Církev adventistů sedmého dne – Sokolov</h1>
+    <h1>Adventisté v Sokolově</h1>
     <nav>
-        <a href="#about">O nás</a>
-        <a href="#services">Aktivity</a>
-        <a href="#contact">Kontakt</a>
+        <a href="index.html">Úvod</a>
+        <a href="o-nas.html">O nás</a>
+        <a href="aktivity.html">Aktivity</a>
+        <a href="kontakt.html">Kontakt</a>
     </nav>
 </header>
 
-<!-- Hero úvodní sekce -->
-<div class="hero">
+<div class="hero fade-in">
     <div class="hero-content">
         <h2>Vítejte u Církve adventistů sedmého dne v Sokolově</h2>
-        <p>Přijďte zažít inspirující bohoslužby, vzdělávání a komunitní aktivity. Každý je u nás vítán.</p>
+        <p>Přijďte zažít inspirující bohoslužby a přátelské prostředí.</p>
     </div>
 </div>
 
-<main>
-    <section id="about">
-        <h2>O nás</h2>
-        <p>Jsme Církev adventistů sedmého dne v Sokolově. Naším cílem je šířit víru, naději a lásku skrze bohoslužby, vzdělávání a společenské aktivity.</p>
-        <p>Přijímáme každého – ať už hledáte duchovní podporu, komunitní aktivity nebo vzdělávání v rámci církve.</p>
-    </section>
-
-    <section id="services">
-        <h2>Naše aktivity</h2>
-        <div class="services">
-            <div class="card">
-                <h3>Bohoslužby</h3>
-                <p>Každou sobotu od <strong>09:30 hod.</strong> se konají bohoslužby v naší modlitebně. Přijďte zažít inspirující atmosféru a hudbu.</p>
-            </div>
-            <div class="card">
-                <h3>Vzdělávání</h3>
-                <p>Kurzy Bible, nedělní škola pro děti a mládež, přednášky a semináře pro dospělé.</p>
-            </div>
-            <div class="card">
-                <h3>Společenské akce</h3>
-                <p>Setkání komunity, sportovní aktivity, dobrovolnické projekty a oslavy svátků.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Kontakt</h2>
-        <p>Církev adventistů sedmého dne – Sokolov</p>
-        <p>Adresa: <strong>[Vložte přesnou adresu modlitebny]</strong></p>
-        <p>Email: <a href="mailto:fila.jaw@gmail.com">fila.jaw@gmail.com</a></p>
-        <p>Telefon: +420 123 456 789</p>
-        <p>Více informací na <a href="https://www.adventist.cz" target="_blank">adventist.cz</a></p>
-    </section>
-</main>
-
 <footer>
-    <p>&copy; 2026 Církev adventistů sedmého dne – Sokolov. Všechna práva vyhrazena.</p>
+    <p>&copy; 2026 Církev adventistů sedmého dne – Sokolov</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
