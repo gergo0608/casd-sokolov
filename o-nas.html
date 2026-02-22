@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adventisté v Sokolově – O nás</title>
+<style>
+/* --- stejné CSS jako v index.html --- */
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { line-height:1.6; background:#f4f4f9; color:#333; }
+
+header { position: fixed; top:20px; left:50%; transform:translateX(-50%);
+width:90%; max-width:1200px; background: rgba(44,62,80,0.75); color:white;
+padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center;
+border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.25); backdrop-filter: blur(8px); z-index:1000;}
+header h1{ font-size:1.6rem; }
+nav a{ color:white; text-decoration:none; margin-left:1.5rem; font-weight:bold;
+padding:0.3rem 0.6rem; border-radius:8px; transition: background 0.3s;}
+nav a:hover{ background: rgba(241,196,15,0.9); color:#2c3e50;}
+nav a.active{ background:#f1c40f; color:#2c3e50;}
+
+main{ max-width:1200px; margin:220px auto 0 auto; padding:0 2rem; }
+section{ margin-bottom:3rem; background:white; padding:2rem; border-radius:15px; box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+h2 { margin-bottom:1rem; color:#2c3e50; }
+p { margin-bottom:1rem; }
+
+footer{ background:#2c3e50; color:white; text-align:center;
+padding:1rem 2rem; border-radius:15px 15px 0 0; margin-top:2rem;}
+footer a{ color:#f1c40f; text-decoration:none; }
+
+@media(max-width:768px){
+header{flex-direction:column;text-align:center;}
+nav{margin-top:0.5rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Adventisté v Sokolově</h1>
+    <nav>
+        <a href="index.html">Úvod</a>
+        <a href="o-nas.html" class="active">O nás</a>
+        <a href="aktivity.html">Aktivity</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>O nás</h2>
+        <p>Jsme Církev adventistů sedmého dne v Sokolově. Naším cílem je šířit víru, naději a lásku skrze bohoslužby, vzdělávání a společenské aktivity.</p>
+        <p>Přijímáme každého – ať už hledáte duchovní podporu, komunitní aktivity nebo vzdělávání v rámci církve.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Církev adventistů sedmého dne – Sokolov</p>
+</footer>
+
+</body>
+</html>
