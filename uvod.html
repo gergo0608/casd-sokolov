@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <title>Adventisté v Sokolově</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <header>
+
+        </header>
+
+        <nav>
+            <a href="uvod.html" class="logo-link">
+                <img class="logo" src="images/nezasahovat/logo.png" alt="logo">
+            </a>
+            <div class="right-group">
+                <div class="links">
+                    <a href="uvod.html">Úvod</a>
+                    <a href="onas.html">O nás</a>
+                    <a href="dobrovolnydar.html">Dobrovolný dar</a>
+                    <a href="akce.html">Akce</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+                <button class="cta">Napište nám</button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="bg-layer">
+                <img src="images/nezasahovat/gray.webp" class="bg-item active" alt="">
+                <img src="images/nezasahovat/lightgray.png" class="bg-item" alt="">
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-glass">
+                    <h1>Adventisté v Sokolově</h1>
+                    <p>Církev adventistů sedmého dne</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="aktuality">
+          <div class="aktuality-inner">
+            <h2>Aktuality</h2>
+
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" aria-label="Předchozí">‹</button>
+
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="images/aktuality/1.jpg" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aktuality/2.jpg" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aktuality/3.jpg" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aktuality/4.jpg" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aktuality/5.jpg" alt="">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/aktuality/6.jpg" alt="">
+                    </div>
+                    <!-- zdvojené kopie stejných fotek — potřeba pro nekonečné opakování -->
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/1.jpg" alt="">
+                    </div>
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/2.jpg" alt="">
+                    </div>
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/3.jpg" alt="">
+                    </div>
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/4.jpg" alt="">
+                    </div>
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/5.jpg" alt="">
+                    </div>
+                    <div class="carousel-item dup">
+                        <img src="images/aktuality/6.jpg" alt="">
+                    </div>
+                </div>
+
+                <button class="carousel-btn next" aria-label="Další">›</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="rozvrh">
+            <h2>Rozvrh kázání</h2>
+            <p>Aktuální rozpis kázání najdeš na stránkách sdružení.</p>
+            <a href="https://sbory.casd.cz/sokolov/bohosluzby" target="_blank" rel="noopener" class="rozvrh-btn">
+                Zobrazit rozvrh kázání
+            </a>
+        </section>
+
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <img src="" id="lightboxImg" alt="">
+        </div>
+
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-col">
+                    <img class="footer-logo" src="images/nezasahovat/logo1.png" alt="logo">
+                    <p>Církev adventistů sedmého dne<br>Sbor Sokolov</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Rychlé odkazy</h3>
+                    <a href="https://adra.cz" target="_blank" rel="noopener" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3h7v7M21 3l-9 9M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg>
+                        <span>ADRA</span>
+                    </a>
+                    <a href="https://www.adventistevcechach.cz/" target="_blank" rel="noopener" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3h7v7M21 3l-9 9M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg>
+                        <span>Adventisté v Čechách</span>
+                    </a>
+                    <a href="https://www.casd.cz/" target="_blank" rel="noopener" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3h7v7M21 3l-9 9M19 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h6"/></svg>
+                        <span>Církev adventistů sedmého dne</span>
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Sledujte nás</h3>
+                    <a href="https://www.youtube.com/@CASDSokolov" target="_blank" rel="noopener" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7c-.2-.9-.9-1.5-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5c-.9.3-1.6.9-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.7c.2.9.9 1.5 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5c.9-.3 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7Z"/><path d="M10 15.5v-7l6 3.5-6 3.5Z" fill="white"/></svg>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="http://www.instagram.com/casd_sokolov" target="_blank" rel="noopener" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <p>Kraslická 494/14<br>356 01 Sokolov</p>
+                    <a href="mailto:casd.sokolov@gmail.com">casd.sokolov@gmail.com</a>
+                    <a href="tel:+420739345675">+420 739 345 675</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Adventisté v Sokolově. Všechna práva vyhrazena.</p>
+            </div>
+        </footer>
+
+
+        <script>
+            // ===== přepínání pozadí v hero sekci =====
+            const heroItems = document.querySelectorAll('.bg-item');
+            let heroIndex = 0;
+
+            function showNextHero() {
+                heroItems[heroIndex].classList.remove('active');
+                if (heroItems[heroIndex].tagName === 'VIDEO') heroItems[heroIndex].pause();
+
+                heroIndex = (heroIndex + 1) % heroItems.length;
+
+                heroItems[heroIndex].classList.add('active');
+                if (heroItems[heroIndex].tagName === 'VIDEO') {
+                    heroItems[heroIndex].currentTime = 0;
+                    heroItems[heroIndex].play();
+                }
+            }
+
+            setInterval(showNextHero, 5000);
+
+
+            // ===== zvýraznění aktuální stránky v menu =====
+            const currentPage = window.location.pathname.split('/').pop() || 'uvod.html';
+            document.querySelectorAll('.links a').forEach((link) => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+
+            // ===== aktuální rok v patičce =====
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+
+            // ===== carousel v Aktualitách =====
+            const track = document.querySelector('.carousel-track');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            const wrapper = document.querySelector('.carousel-wrapper');
+            let autoScroll;
+
+            // pokud se fotka nenajde/nenačte, celá její "kachlička" ve slidu zmizí —
+            // zbydou tam jen ty, co se opravdu podařilo najít.
+            // Počká se, až se u všech fotek ví, jestli se povedly/nepovedly,
+            // a teprve pak se rozhodne, jestli poběží posuvný, nebo statický režim.
+            function waitForImage(img) {
+                return new Promise((resolve) => {
+                    if (img.complete) {
+                        resolve(img.naturalWidth > 0);
+                    } else {
+                        img.addEventListener('load', () => resolve(true), { once: true });
+                        img.addEventListener('error', () => resolve(false), { once: true });
+                    }
+                });
+            }
+
+            const allImgs = Array.from(track.querySelectorAll('.carousel-item img'));
+
+            Promise.all(allImgs.map(waitForImage)).then((results) => {
+                allImgs.forEach((img, i) => {
+                    if (!results[i]) {
+                        const item = img.closest('.carousel-item');
+                        if (item) item.remove();
+                    }
+                });
+                applyCarouselMode();
+            });
+
+            // kolik fotek se aktuálně vejde vedle sebe — musí odpovídat
+            // breakpointům v CSS (900px = 3→2, 600px = 2→1)
+            function getItemsPerView() {
+                const w = window.innerWidth;
+                if (w <= 600) return 1;
+                if (w <= 900) return 2;
+                return 3;
+            }
+
+            // rozhodne, jestli se má jet posuvný carousel, nebo jen statický řádek
+            function applyCarouselMode() {
+                const realCount = track.querySelectorAll('.carousel-item:not(.dup)').length;
+                const itemsPerView = getItemsPerView();
+
+                if (realCount <= itemsPerView) {
+                    wrapper.classList.add('static-mode');
+                    clearInterval(autoScroll);
+                    track.scrollLeft = 0;
+                } else {
+                    wrapper.classList.remove('static-mode');
+                    if (!autoScroll) startAutoScroll();
+                }
+            }
+
+            function getItemWidth() {
+                const item = track.querySelector('.carousel-item');
+                const gap = parseFloat(getComputedStyle(track).gap) || 16;
+                return item.offsetWidth + gap;
+            }
+
+            // okamžitý, neanimovaný skok scrollLeft — bez tohohle by se skok
+            // sám snažil animovat (kvůli scroll-behavior: smooth) a srazil by se
+            // s právě probíhající animací posunu, což celou smyčku zaseklo
+            function jumpTo(newScrollLeft) {
+                track.style.scrollBehavior = 'auto';
+                track.scrollLeft = newScrollLeft;
+                // vrátit smooth zpátky až v dalším "tiku", ať se skok stihne provést instantně
+                requestAnimationFrame(() => {
+                    track.style.scrollBehavior = 'smooth';
+                });
+            }
+
+            // sleduje scroll a jakmile dojede na polovinu (konec 1. sady fotek),
+            // neviditelně skočí zpátky na začátek — díky duplicitním fotkám za sebou
+            // to vypadá, že to jede donekonečna
+            function loopIfNeeded() {
+                if (wrapper.classList.contains('static-mode')) return;
+                const halfWidth = track.scrollWidth / 2;
+                if (track.scrollLeft >= halfWidth) {
+                    jumpTo(track.scrollLeft - halfWidth);
+                }
+            }
+
+            function scrollByOneItem(direction) {
+                if (wrapper.classList.contains('static-mode')) return;
+
+                const itemWidth = getItemWidth();
+
+                // pokud jedeme dozadu a jsme na/blízko začátku, nejdřív se
+                // neviditelně přesuň doprostřed, ať má kam couvat
+                if (direction < 0 && track.scrollLeft < itemWidth) {
+                    jumpTo(track.scrollLeft + track.scrollWidth / 2);
+                }
+
+                track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
+            }
+
+            function startAutoScroll() {
+                if (wrapper.classList.contains('static-mode')) return;
+                autoScroll = setInterval(() => scrollByOneItem(1), 4000);
+            }
+
+            track.addEventListener('scroll', loopIfNeeded);
+
+            prevBtn.addEventListener('click', () => scrollByOneItem(-1));
+            nextBtn.addEventListener('click', () => scrollByOneItem(1));
+
+            startAutoScroll();
+
+            // zastav auto-scroll, když člověk interaguje, a po odjetí ho zase spusť
+            track.addEventListener('mouseenter', () => clearInterval(autoScroll));
+            track.addEventListener('mouseleave', startAutoScroll);
+            track.addEventListener('touchstart', () => clearInterval(autoScroll));
+            track.addEventListener('touchend', startAutoScroll);
+
+            // při změně velikosti okna (např. otočení mobilu) přepočítat režim
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(applyCarouselMode, 200);
+            });
+
+
+
+            // ===== lightbox — zvětšení fotky po kliknutí =====
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+
+            document.querySelectorAll('.carousel-item img').forEach(img => {
+                img.addEventListener('click', () => {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // zavřít i kliknutím mimo obrázek (na tmavé pozadí)
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // zavřít klávesou Esc
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,896 @@
+/* ============================================
+   RESET / ZÁKLAD
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-text: #171717;
+  --color-text-soft: rgba(23, 23, 23, 0.65);
+  --color-accent: #2b4c3f;
+  --color-accent-soft: rgba(43, 76, 63, 0.1);
+  --color-bg: #fafaf8;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 8px 32px rgba(23, 23, 23, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+
+/* ============================================
+   ISLAND NAV — Liquid Glass efekt
+   ============================================ */
+
+nav {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 14px 28px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.28)
+  );
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+
+  z-index: 100;
+  transition: box-shadow 0.3s ease;
+}
+
+/* jemná "mlhavá" textura navrch skla */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.55), transparent 60%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.logo-link {
+  display: block;
+  line-height: 0;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.85;
+}
+
+.logo {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.right-group {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  z-index: 1;
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+}
+
+.links a {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 14.5px;
+  font-weight: 600;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.links a:hover {
+  color: var(--color-accent);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.links a.active {
+  color: var(--color-accent);
+}
+
+.links a.active::after {
+  width: 100%;
+}
+
+.cta {
+  background: var(--color-text);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--color-accent-soft);
+}
+
+@media (max-width: 640px) {
+  .links {
+    display: none;
+  }
+  nav {
+    padding: 12px 18px;
+  }
+}
+
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  position: relative;
+  height: 100vh;   /* fallback pro starší prohlížeče */
+  height: 100svh;  /* přesnější na mobilech (bez adresního řádku) */
+  overflow: hidden;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.4s ease, transform 6s ease;
+}
+
+.bg-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  animation: fadeUp 1s ease both;
+}
+
+.hero-content h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 500;
+  opacity: 0.92;
+  letter-spacing: 0.01em;
+}
+
+.hero-glass {
+  padding: 36px 56px;
+  border-radius: var(--radius-lg);
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 640px) {
+  .hero-glass {
+    padding: 24px 28px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================
+   AKTUALITY / CAROUSEL
+   ============================================ */
+
+.aktuality {
+  background: #f5f5f4; /* fakt jen lehce šedá */
+  padding: 90px 20px;
+}
+
+.aktuality-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.aktuality h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.aktuality h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  margin: 14px auto 32px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.carousel-track {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-item {
+  flex: 0 0 calc(33.333% - 14px);
+  scroll-snap-align: start;
+}
+
+.carousel-item img {
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+  cursor: zoom-in;
+  box-shadow: 0 4px 18px rgba(23, 23, 23, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.carousel-item img:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 16px 32px rgba(23, 23, 23, 0.15);
+}
+
+.carousel-btn {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  background: white;
+  color: var(--color-text);
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-btn:hover {
+  background: var(--color-accent);
+  color: white;
+  transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+  .carousel-item {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-item {
+    flex: 0 0 100%;
+  }
+}
+
+
+/* ============================================
+   LIGHTBOX — zvětšení fotky po kliknutí
+   ============================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+
+/* ============================================
+   STATICKÝ REŽIM CAROUSELU
+   (když se všechny fotky vejdou najednou, nic se neposouvá)
+   ============================================ */
+
+.carousel-wrapper.static-mode .carousel-item.dup {
+  display: none;
+}
+
+.carousel-wrapper.static-mode .carousel-btn {
+  display: none;
+}
+
+.carousel-wrapper.static-mode .carousel-track {
+  overflow: visible;
+  scroll-snap-type: none;
+  justify-content: center;
+}
+
+
+/* ============================================
+   ROZVRH KÁZÁNÍ
+   ============================================ */
+
+.rozvrh {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 20px 100px;
+  text-align: center;
+}
+
+.rozvrh h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.rozvrh h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  margin: 14px auto 20px;
+}
+
+.rozvrh p {
+  color: var(--color-text-soft);
+  font-size: 16px;
+  margin-bottom: 28px;
+}
+
+.rozvrh-btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.rozvrh-btn:hover {
+  background: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+  background: var(--color-text);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 64px 24px 24px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-col h3 {
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 12px;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: white;
+}
+
+.footer-address {
+  font-size: 11.5px !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  margin-top: 14px !important;
+}
+
+.footer-logo {
+  height: 56px;
+  width: auto;
+  margin-bottom: 16px;
+  /* pokud je logo tmavé, odkomentuj řádek níž, ať je na tmavém pozadí vidět */
+  /* filter: brightness(0) invert(1); */
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.footer-link {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+
+/* ============================================
+   OBSAH PODSTRÁNEK (např. O nás)
+   ============================================ */
+
+.page-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 160px 24px 100px;
+}
+
+.page-content h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.page-content h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  margin: 44px 0 14px;
+}
+
+.page-content p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--color-text-soft);
+  margin-bottom: 6px;
+}
+
+.page-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.page-list li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 16px;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--color-text-soft);
+}
+
+.page-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.page-list li strong {
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .page-content {
+    padding-top: 130px;
+  }
+}
+
+
+/* ============================================
+   VLOŽENÁ YOUTUBE VIDEA
+   ============================================ */
+
+.video-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+@media (max-width: 700px) {
+  .video-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* zachová poměr stran videa při jakékoliv šířce */
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(23, 23, 23, 0.12);
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+/* ============================================
+   DOBROVOLNÝ DAR — QR KÓDY
+   ============================================ */
+
+.qr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.qr-card {
+  background: white;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: var(--radius-md);
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(23, 23, 23, 0.05);
+}
+
+.qr-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+}
+
+.qr-detail {
+  font-size: 14.5px;
+  color: var(--color-text-soft);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.qr-detail strong {
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .qr-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================
+   KONTAKTY — mapa a fotka pastora
+   ============================================ */
+
+.contact-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+  margin: 20px 0 44px;
+}
+
+.contact-media {
+  flex: 1 1 260px;
+  max-width: 320px;
+}
+
+.contact-info {
+  flex: 1 1 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.map-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(23, 23, 23, 0.12);
+}
+
+.map-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pastor-photo {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 4px 18px rgba(23, 23, 23, 0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--color-text-soft);
+  margin: 0;
+}
+
+.info-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-accent);
+}
+
+.info-item a {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-item a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .contact-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-media {
+    max-width: 100%;
+  }
+}
+
+
+/* ============================================
+   GALERIE (Akce) — fotky se zalamují do řádků,
+   na mobilu jsou jen menší (2 vedle sebe)
+   ============================================ */
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0 48px;
+}
+
+.gallery-grid .carousel-item {
+  scroll-snap-align: unset;
+}
+
+@media (max-width: 640px) {
+  .gallery-grid .carousel-item {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
